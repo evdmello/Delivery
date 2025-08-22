@@ -6,6 +6,7 @@ async function bootstrap() {
   
   app.enableCors({ origin: true, credentials: true });
   app.getHttpAdapter().get('/health', (_req, res) => res.send({ ok: true }));
+  app.setGlobalPrefix('api');
   
   await app.listen(process.env.PORT ?? 3000);
 }
