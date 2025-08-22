@@ -109,6 +109,7 @@ export class AuthService {
 
   async me(userId: string) {
     const u = await this.users.findById(userId);
+    if (!u) throw new UnauthorizedException('User not found');
     return { id: u.id, email: u.email, phone: u.phone, createdAt: u.createdAt };
   }
 
