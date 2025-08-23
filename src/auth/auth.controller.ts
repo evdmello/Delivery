@@ -11,7 +11,7 @@ export class AuthController {
   @Post('register')
   async register(@Body() body: unknown) {
     const dto = RegisterDto.parse(body);
-    return this.auth.register(dto.email.toLowerCase(), dto.password, dto.phone);
+    return this.auth.register(dto.firstName, dto.lastName, dto.email.toLowerCase(), dto.password, dto.phone);
   }
 
   @Post('login')

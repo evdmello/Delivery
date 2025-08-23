@@ -18,11 +18,11 @@ export class AuthService {
     private mailer: MailerService,
   ) {}
 
-  async register(email: string, password: string, phone?: string) {
+  async register(firstName: string, lastName: string, email: string, password: string, phone?: string) {
     const exists = await this.users.findByEmail(email);
     if (exists) throw new BadRequestException('Email already registered');
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
-    const user = await this.users.create({ email, passwordHash, phone });
+    const user = await this.users.create({ firstName, lastName, email, passwordHash, phone });
     return this.issueTokens(user.id, email);
   }
 

@@ -11,7 +11,7 @@ export class UsersService {
   findById(id: string) {
     return this.prisma.user.findUnique({ where: { id } });
   }
-  create(data: { email: string; passwordHash: string; phone?: string }) {
+  create(data: { firstName: string; lastName: string; email: string; passwordHash: string; phone?: string }) {
     return this.prisma.user.create({ data });
   }
   update(id: string, data: any) {
