@@ -19,3 +19,5 @@ prisma/.env
 # OS
 .DS_Store
 Thumbs.db
+*.pub
+ssh_delivery
